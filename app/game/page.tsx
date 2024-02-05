@@ -1,11 +1,18 @@
+"use client"
+
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import Image from 'next/image'
 import { DropdownMenuRadioGroupDemo } from '@/components/ui/dropGame'
 import { CarouselSize } from '@/components/ui/quizCarousel';
+import {useRouter} from 'next/navigation';
 
 
 const Game : React.FC = () => {
+  const router  = useRouter();
+  const handleLogout = () => {
+    router.push("/login");
+  }
   return (
     <main>
       <div className='flex flex-col'>
@@ -21,7 +28,7 @@ const Game : React.FC = () => {
 
               <Button variant="ghost" className='font-semibold font-mono mx-2'>Play</Button>
               <Button variant="ghost" className='font-semibold font-mono mx-2'>My Quiz</Button>
-              <Button  className='font-semibold font-mono mx-4'>Log out</Button>
+              <Button  className='font-semibold font-mono mx-4' onClick={handleLogout}>Log out</Button>
               <DropdownMenuRadioGroupDemo />
             </div>
           </div>
